@@ -17,7 +17,7 @@ body{
     background:#f5f5f5;
 }
 
-/* Navigation */
+/* Header */
 header{
     background:#ff5722;
     color:white;
@@ -49,7 +49,13 @@ nav ul li a:hover{
     color:yellow;
 }
 
-/* Hero Section */
+.cart{
+    text-align:right;
+    margin-top:10px;
+    font-size:18px;
+}
+
+/* Hero */
 .hero{
     height:60vh;
     display:flex;
@@ -65,12 +71,11 @@ nav ul li a:hover{
 
 .hero h1{
     font-size:50px;
-    margin-bottom:15px;
 }
 
 .hero p{
     font-size:20px;
-    margin-bottom:20px;
+    margin:20px 0;
 }
 
 .hero button{
@@ -89,13 +94,8 @@ nav ul li a:hover{
 
 /* Menu */
 .menu{
-    padding:50px;
+    padding:40px;
     text-align:center;
-}
-
-.menu h2{
-    margin-bottom:30px;
-    color:#333;
 }
 
 .food-container{
@@ -125,13 +125,13 @@ nav ul li a:hover{
 }
 
 .food-card h3{
-    margin:15px 0 10px;
+    margin-top:10px;
 }
 
 .food-card p{
     color:#ff5722;
     font-size:20px;
-    margin-bottom:15px;
+    margin:10px;
 }
 
 .food-card button{
@@ -148,6 +148,30 @@ nav ul li a:hover{
     background:#e64a19;
 }
 
+/* Summary */
+.summary{
+    text-align:center;
+    margin:40px;
+}
+
+.summary h2{
+    margin-bottom:15px;
+}
+
+.summary button{
+    padding:12px 25px;
+    border:none;
+    background:green;
+    color:white;
+    font-size:18px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.summary button:hover{
+    background:darkgreen;
+}
+
 /* Footer */
 footer{
     background:#222;
@@ -159,21 +183,23 @@ footer{
 
 /* Responsive */
 @media(max-width:768px){
-    nav{
-        flex-direction:column;
-    }
 
-    nav ul{
-        margin-top:10px;
-    }
+nav{
+    flex-direction:column;
+}
 
-    .hero h1{
-        font-size:35px;
-    }
+nav ul{
+    margin-top:10px;
+}
 
-    .hero p{
-        font-size:18px;
-    }
+.hero h1{
+    font-size:35px;
+}
+
+.hero p{
+    font-size:18px;
+}
+
 }
 </style>
 
@@ -181,64 +207,148 @@ footer{
 <body>
 
 <header>
-    <nav>
-        <h2>🍔 FoodExpress</h2>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Menu</a></li>
-            <li><a href="#">Offers</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
+
+<nav>
+
+<h2>🍔 FoodExpress</h2>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Menu</a></li>
+<li><a href="#">Offers</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+
+</nav>
+
+<div class="cart">
+🛒 Items : <span id="items">0</span> |
+Total : ₹<span id="total">0</span>
+</div>
+
 </header>
 
 <section class="hero">
-    <div>
-        <h1>Delicious Food Delivered Fast</h1>
-        <p>Order your favorite meals anytime, anywhere.</p>
-        <button>Order Now</button>
-    </div>
+
+<div>
+<h1>Delicious Food Delivered Fast</h1>
+<p>Order your favourite food online.</p>
+<button onclick="scrollToMenu()">Order Now</button>
+</div>
+
 </section>
 
-<section class="menu">
-    <h2>Popular Dishes</h2>
+<section class="menu" id="menu">
 
-    <div class="food-container">
+<h2>Popular Dishes</h2>
 
-        <div class="food-card">
-            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd" alt="Burger">
-            <h3>Cheese Burger</h3>
-            <p>₹250</p>
-            <button>Add to Cart</button>
-        </div>
+<div class="food-container">
 
-        <div class="food-card">
-            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591" alt="Pizza">
-            <h3>Veg Pizza</h3>
-            <p>₹450</p>
-            <button>Add to Cart</button>
-        </div>
+<div class="food-card">
+<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
+<h3>Cheese Burger</h3>
+<p>₹250</p>
+<button onclick="addToCart(250)">Add to Cart</button>
+</div>
 
-        <div class="food-card">
-            <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9" alt="Pasta">
-            <h3>White Sauce Pasta</h3>
-            <p>₹350</p>
-            <button>Add to Cart</button>
-        </div>
+<div class="food-card">
+<img src="https://images.unsplash.com/photo-1513104890138-7c749659a591">
+<h3>Veg Pizza</h3>
+<p>₹450</p>
+<button onclick="addToCart(450)">Add to Cart</button>
+</div>
 
-        <div class="food-card">
-            <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877" alt="Fries">
-            <h3>French Fries</h3>
-            <p>₹250</p>
-            <button>Add to Cart</button>
-        </div>
+<div class="food-card">
+<img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9">
+<h3>White Sauce Pasta</h3>
+<p>₹350</p>
+<button onclick="addToCart(350)">Add to Cart</button>
+</div>
 
-    </div>
+<div class="food-card">
+<img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877">
+<h3>French Fries</h3>
+<p>₹250</p>
+<button onclick="addToCart(250)">Add to Cart</button>
+</div>
+
+</div>
+
 </section>
+
+<div class="summary">
+
+<h2>Your Order</h2>
+
+<p>Total Items : <span id="summaryItems">0</span></p>
+
+<p>Total Price : ₹<span id="summaryTotal">0</span></p>
+
+<br>
+
+<button onclick="placeOrder()">Place Order</button>
+
+</div>
 
 <footer>
-    <p>© 2026 FoodExpress | Delicious Food Delivered to Your Doorstep</p>
+
+<p>© 2026 FoodExpress | Delicious Food Delivered To Your Doorstep</p>
+
 </footer>
+
+<script>
+
+let items=0;
+let total=0;
+
+function addToCart(price){
+
+items++;
+total+=price;
+
+document.getElementById("items").innerHTML=items;
+document.getElementById("total").innerHTML=total;
+
+document.getElementById("summaryItems").innerHTML=items;
+document.getElementById("summaryTotal").innerHTML=total;
+
+alert("Item Added Successfully!");
+
+}
+
+function placeOrder(){
+
+if(items==0){
+
+alert("Your cart is empty!");
+
+}
+
+else{
+
+alert("Order Placed Successfully!\n\nTotal Items : "+items+"\nTotal Amount : ₹"+total);
+
+items=0;
+total=0;
+
+document.getElementById("items").innerHTML=0;
+document.getElementById("total").innerHTML=0;
+document.getElementById("summaryItems").innerHTML=0;
+document.getElementById("summaryTotal").innerHTML=0;
+
+}
+
+}
+
+function scrollToMenu(){
+
+document.getElementById("menu").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+</script>
 
 </body>
 </html>
